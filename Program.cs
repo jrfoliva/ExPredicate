@@ -14,12 +14,18 @@ namespace ExPredicate
             list.Add(new Product("Tablet", 350.50));
             list.Add(new Product("HD Case", 80.90));
 
-            list.RemoveAll(p => p.Price >= 100.00); // Predicate com função lambda
+            list.RemoveAll(FiltredProduct); // Passado função estática como referência. 
 
             foreach (Product p in list)
             {
                 Console.WriteLine(p);
             }
+        }
+
+        // método estático para realizar o filtro
+        public static bool FiltredProduct(Product product)
+        {
+            return product.Price >= 100.0;
         }
     }
 }
